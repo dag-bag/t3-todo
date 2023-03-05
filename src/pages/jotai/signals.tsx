@@ -3,47 +3,53 @@
 import { atom } from "jotai";
 import { useAtom, useSetAtom } from "jotai";
 import { $, createElement, atomSignal } from "jotai-signal";
+import React from "react";
 
-const countAtom = atom(0);
+function signals() {
+  return <div>signals</div>;
+}
 
-const CounterWithSignal = () => {
-  const wow = atomSignal("", "", () => "");
-  return (
-    <div>
-      <h1>With $(atom)</h1>
-      {/* // eslint-disable-next-line @typescript-eslint/no-unsafe-call */}
-      Count: {$(countAtom)} ({Math.random()})
-    </div>
-  );
-};
+export default signals;
+// const countAtom = atom(0);
 
-const Counter = () => {
-  const [count] = useAtom(countAtom);
-  return (
-    <div>
-      <h1>With useAtom(atom)</h1>
-      Count: {count} ({Math.random()})
-    </div>
-  );
-};
+// const CounterWithSignal = () => {
+//   const wow = atomSignal("", "", () => "");
+//   return (
+//     <div>
+//       <h1>With $(atom)</h1>
+//       {/* // eslint-disable-next-line @typescript-eslint/no-unsafe-call */}
+//       Count: {$(countAtom)} ({Math.random()})
+//     </div>
+//   );
+// };
 
-const Controls = () => {
-  const setCount = useSetAtom(countAtom);
-  return (
-    <div>
-      <button type="button" onClick={() => setCount((c) => c + 1)}>
-        Increment
-      </button>
-    </div>
-  );
-};
+// const Counter = () => {
+//   const [count] = useAtom(countAtom);
+//   return (
+//     <div>
+//       <h1>With useAtom(atom)</h1>
+//       Count: {count} ({Math.random()})
+//     </div>
+//   );
+// };
 
-const App = () => (
-  <>
-    <Controls />
-    <CounterWithSignal />
-    <Counter />
-  </>
-);
+// const Controls = () => {
+//   const setCount = useSetAtom(countAtom);
+//   return (
+//     <div>
+//       <button type="button" onClick={() => setCount((c) => c + 1)}>
+//         Increment
+//       </button>
+//     </div>
+//   );
+// };
 
-export default App;
+// const App = () => (
+//   <>
+//     <Controls />
+//     <CounterWithSignal />
+//     <Counter />
+//   </>
+// );
+
+// export default App;
